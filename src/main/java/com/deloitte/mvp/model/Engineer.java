@@ -2,7 +2,7 @@ package com.deloitte.mvp.model;
 
 import java.util.List;
 
-public class Practioner {
+public class Engineer {
 
     private String firstName;
     private String lastName;
@@ -12,7 +12,7 @@ public class Practioner {
     private String dateOfJoining;
     private List<Skill> listOfSkills;
 
-    public Practioner(String firstName, String lastName, String unit, int age, double totalExperience, String dateOfJoining) {
+    public Engineer(String firstName, String lastName, String unit, int age, double totalExperience, String dateOfJoining) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.unit = unit;
@@ -21,7 +21,7 @@ public class Practioner {
         this.dateOfJoining = dateOfJoining;
     }
 
-    public Practioner(String firstName, String lastName, String unit, int age, double totalExperience, String dateOfJoining, List<Skill> listOfSkills) {
+    public Engineer(String firstName, String lastName, String unit, int age, double totalExperience, String dateOfJoining, List<Skill> listOfSkills) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.unit = unit;
@@ -31,14 +31,14 @@ public class Practioner {
         this.listOfSkills = listOfSkills;
     }
 
-    public Practioner(String firstName, String lastName, int age, double totalExperience) {
+    public Engineer(String firstName, String lastName, int age, double totalExperience) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.totalExperience = totalExperience;
     }
 
-    public Practioner() {
+    public Engineer() {
     }
 
     public String getFirstName() {
@@ -99,7 +99,7 @@ public class Practioner {
 
     @Override
     public String toString() {
-        return "Practioner{" +
+        return "Engineer{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", unit='" + unit + '\'' +
