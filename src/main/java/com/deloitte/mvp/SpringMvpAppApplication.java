@@ -2,11 +2,10 @@ package com.deloitte.mvp;
 
 import com.deloitte.mvp.model.Engineer;
 import com.deloitte.mvp.model.Skill;
-import org.springframework.boot.CommandLineRunner;
+import com.deloitte.mvp.utility.ResourceCounter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -38,8 +37,8 @@ public class SpringMvpAppApplication {
         skillSetP2.add(new Skill("OutSystems", 2.2, 11.0));
         p2.setListOfSkills(skillSetP2);
 
-        resources.put(1,p1);
-        resources.put(2,p2);
+        resources.put(ResourceCounter.increment(),p1);
+        resources.put(ResourceCounter.increment(),p2);
 
         return resources;
     }
