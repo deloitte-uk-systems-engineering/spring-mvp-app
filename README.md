@@ -24,8 +24,15 @@ Open Browser and fire the below url for getting all the engineers -
 `http://localhost:8080/engineer/all`
 
 For getting specific engineer -     
-`http://localhost:8080/engineer/1`
+`http://localhost:8080/engineer/<id>`    
 
+For adding an engineer -    
+Use Postman/Insomnia/ARC Client to send json body for "Engineer" and as Post method for the below URI -   
+`http://localhost:8080/engineer/create`
+
+For removing an engineer -    
+Use Postman/Insomnia/ARC Client for Delete method for the below URI -   
+`http://localhost:8080/engineer/delete/<id>`
 
 
 
