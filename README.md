@@ -1,40 +1,43 @@
-# spring-mvp-app
+# Java Spring Boilerplate
 
-**Cloning the application**     
+A Java Spring boilerplate reference project with user authentication, and connects to an SQL database
 
-Use git to clone the application into your local workspace with below command   
-git clone https://github.com/deloitte-uk-systems-engineering/spring-mvp-app.git
+The use case is a skills tracker app for users
 
-Use any IDE of choice like Eclipse, IntelliJ IDEA, Netbeans etc.
+## Run/Build Locally
 
+Various options to run/build this app locally:
+- With Maven, run `maven clean install` followed by `maven spring-boot:run` or,
+- Open `SpringMvpAppApplication.java` on your code editor and run as application
 
-**Running locally**
+## Database
 
-The application can be built using maven and then either run by -
-1. jar spring-mvp-app.jar
-2. Go to 'SpringMvpAppApplication.java', right click and select 'Run as Application'
+- App is currently storing data via in-memory database
+- This will be replaced by local SQL database such as PostgreSQL or cloud database such as AWS RDS
+- Associated configurations will be added in `/resources/application.properties`
 
-**Data Source** is in-memory database which will be replaced by either cloud or locally installed database like MySql, Oracle etc. 
-Relevant configuration will be added in "/resources/application.properties"
+## Usage  
+ 
+- Once app is running, to get users make a GET request to `http://localhost:8080/engineer/all`
 
-**Testing Application**     
-Run the Application     
+- To get info on specific user, make a GET request to `http://localhost:8080/engineer/<id>`    
 
-Open Browser and fire the below url for getting all the engineers -     
-`http://localhost:8080/engineer/all`
+- To add a user, make a POST request to `http://localhost:8080/engineer/create` with the following body:
+```bash
+{
+    "name": "John Dow"
+}
+```
 
-For getting specific engineer -     
-`http://localhost:8080/engineer/<id>`    
+- To remove a user, make a DELETE request to `http://localhost:8080/engineer/delete/<id>`
 
-For adding an engineer -    
-Use Postman/Insomnia/ARC Client to send json body for "Engineer" and as Post method for the below URI -   
-`http://localhost:8080/engineer/create`
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-For removing an engineer -    
-Use Postman/Insomnia/ARC Client for Delete method for the below URI -   
-`http://localhost:8080/engineer/delete/<id>`
+Please make sure to update tests as appropriate.
 
-
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
 
 
