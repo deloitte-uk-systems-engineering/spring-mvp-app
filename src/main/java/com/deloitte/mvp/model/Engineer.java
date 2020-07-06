@@ -6,34 +6,35 @@ public class Engineer {
 
     private String firstName;
     private String lastName;
-    private String unit;
+    private String grade;
     private int age;
     private double totalExperience;
     private String dateOfJoining;
     private List<Skill> listOfSkills;
 
-    public Engineer(String firstName, String lastName, String unit, int age, double totalExperience, String dateOfJoining) {
+    public Engineer(String firstName, String lastName, String grade, int age, double totalExperience, String dateOfJoining) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.unit = unit;
+        this.grade = grade;
         this.age = age;
         this.totalExperience = totalExperience;
         this.dateOfJoining = dateOfJoining;
     }
 
-    public Engineer(String firstName, String lastName, String unit, int age, double totalExperience, String dateOfJoining, List<Skill> listOfSkills) {
+    public Engineer(String firstName, String lastName, String grade, int age, double totalExperience, String dateOfJoining, List<Skill> listOfSkills) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.unit = unit;
+        this.grade = grade;
         this.age = age;
         this.totalExperience = totalExperience;
         this.dateOfJoining = dateOfJoining;
         this.listOfSkills = listOfSkills;
     }
 
-    public Engineer(String firstName, String lastName, int age, double totalExperience) {
+    public Engineer(String firstName, String lastName, String grade, int age, double totalExperience) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.grade = grade;
         this.age = age;
         this.totalExperience = totalExperience;
     }
@@ -57,12 +58,12 @@ public class Engineer {
         this.lastName = lastName;
     }
 
-    public String getUnit() {
-        return unit;
+    public String getGrade() {
+        return grade;
     }
 
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
     public int getAge() {
@@ -102,7 +103,7 @@ public class Engineer {
         return "Engineer{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", unit='" + unit + '\'' +
+                ", grade='" + grade + '\'' +
                 ", age=" + age +
                 ", totalExperience=" + totalExperience +
                 ", dateOfJoining='" + dateOfJoining + '\'' +

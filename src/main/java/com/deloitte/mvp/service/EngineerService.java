@@ -24,8 +24,9 @@ public class EngineerService implements IEngineerService{
     }
 
     @Override
-    public List<Engineer> getAllEngineers() {
-        return new ArrayList<Engineer>(resources.values());
+    public Map<Integer, Engineer> getAllEngineers() {
+        return resources;
+        //return new ArrayList<Engineer>(resources.values());
     }
 
     @Override
