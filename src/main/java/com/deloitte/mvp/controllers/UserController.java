@@ -16,7 +16,7 @@ public class UserController {
 
     // Get all users
     @RequestMapping(value = "", method = RequestMethod.GET, produces = "application/json")
-    public Map<Integer, User> users(){
+    public Map<Integer, User> getUsers(){
         return userService.getUsers();
     }
 
@@ -29,7 +29,7 @@ public class UserController {
     // Create user
     @RequestMapping(value = "", method = RequestMethod.POST)
     public int createUser(@RequestBody User user){
-        return userService.addUser(user);
+        return userService.createUser(user);
     }
 
     // Delete user
