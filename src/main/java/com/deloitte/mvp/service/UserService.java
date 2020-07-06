@@ -14,7 +14,7 @@ public class UserService implements IUserService {
     Map<Integer, User> resources;
 
     @Override
-    public Integer addUser(User user) {
+    public Integer createUser(User user) {
         int id = ResourceCounter.increment();
         resources.put(id, user);
         return id;
