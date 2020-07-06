@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/engineer")
@@ -17,7 +18,7 @@ public class EngineerController {
 
     // Get all practioners from the map
     @RequestMapping(value = "/all", method = RequestMethod.GET, produces = "application/json")
-    public List<Engineer> allPractioners(){
+    public Map<Integer, Engineer> allPractioners(){
         return engService.getAllEngineers();
     }
 
