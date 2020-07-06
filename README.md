@@ -25,7 +25,8 @@ Various options to run/build this app locally:
 - To add a user, make a POST request to `http://localhost:8080/engineer/create` with the following body:
 ```bash
 {
-    "name": "John Dow"
+	"firstName": "John",
+	"lastName": "Doe",
 }
 ```
 
