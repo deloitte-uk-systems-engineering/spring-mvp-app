@@ -18,11 +18,11 @@ Various options to run/build this app locally:
 
 ## Usage  
  
-- Once app is running, to get users make a GET request to `http://localhost:8080/engineer/all`
+- Once app is running, to get users make a GET request to `http://localhost:8080/users`
 
-- To get info on specific user, make a GET request to `http://localhost:8080/engineer/<id>`    
+- To get info on specific user, make a GET request to `http://localhost:8080/users/<id>`    
 
-- To add a user, make a POST request to `http://localhost:8080/engineer/create` with the following body:
+- To add a user, make a POST request to `http://localhost:8080/users` with the following body:
 ```bash
 {
 	"firstName": "John",
@@ -30,7 +30,7 @@ Various options to run/build this app locally:
 }
 ```
 
-- To remove a user, make a DELETE request to `http://localhost:8080/engineer/delete/<id>`
+- To remove a user, make a DELETE request to `http://localhost:8080/users/<id>`
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

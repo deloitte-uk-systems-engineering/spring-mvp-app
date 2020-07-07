@@ -2,7 +2,7 @@ package com.deloitte.mvp.model;
 
 import java.util.List;
 
-public class Engineer {
+public class User {
 
     private String firstName;
     private String lastName;
@@ -12,7 +12,7 @@ public class Engineer {
     private String dateOfJoining;
     private List<Skill> listOfSkills;
 
-    public Engineer(String firstName, String lastName, String grade, int age, double totalExperience, String dateOfJoining) {
+    public User(String firstName, String lastName, String grade, int age, double totalExperience, String dateOfJoining) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.grade = grade;
@@ -21,7 +21,7 @@ public class Engineer {
         this.dateOfJoining = dateOfJoining;
     }
 
-    public Engineer(String firstName, String lastName, String grade, int age, double totalExperience, String dateOfJoining, List<Skill> listOfSkills) {
+    public User(String firstName, String lastName, String grade, int age, double totalExperience, String dateOfJoining, List<Skill> listOfSkills) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.grade = grade;
@@ -31,7 +31,7 @@ public class Engineer {
         this.listOfSkills = listOfSkills;
     }
 
-    public Engineer(String firstName, String lastName, String grade, int age, double totalExperience) {
+    public User(String firstName, String lastName, String grade, int age, double totalExperience) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.grade = grade;
@@ -39,7 +39,7 @@ public class Engineer {
         this.totalExperience = totalExperience;
     }
 
-    public Engineer() {
+    public User() {
     }
 
     public String getFirstName() {
@@ -100,7 +100,7 @@ public class Engineer {
 
     @Override
     public String toString() {
-        return "Engineer{" +
+        return "User{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", grade='" + grade + '\'' +
