@@ -5,7 +5,7 @@ import com.deloitte.mvp.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
+import java.util.List;
 
 @RestController
 @RequestMapping("/users")
@@ -16,7 +16,7 @@ public class UserController {
 
     // Get all users
     @RequestMapping(value = "", method = RequestMethod.GET, produces = "application/json")
-    public Map<Integer, User> getUsers(){
+    public List<User> getUsers(){
         return userService.getUsers();
     }
 
