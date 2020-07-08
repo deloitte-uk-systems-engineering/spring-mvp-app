@@ -24,7 +24,7 @@ public class UserController {
 
     // Get user by ID
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<User> getUserById(@PathVariable int id){
+    public ResponseEntity<User> getUserById(@PathVariable String id){
         User user = userService.getUserById(id);
         if(user!=null){
             return ResponseEntity.ok().body(user);
@@ -40,7 +40,7 @@ public class UserController {
 
     // Delete user
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<User> deleteUser(@PathVariable int id){
+    public ResponseEntity<User> deleteUser(@PathVariable String id){
         User user = userService.deleteUser(id);
         if(user == null){
             return ResponseEntity.notFound().build();

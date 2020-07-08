@@ -1,55 +1,49 @@
 package com.deloitte.mvp.utility;
 
-import com.deloitte.mvp.model.SkilledUser;
-import com.deloitte.mvp.model.User;
 import com.deloitte.mvp.model.Skill;
+import com.deloitte.mvp.model.User;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Component
 public class ResourceCreator {
 
-    public static Map<Integer, User> createEngineers() {
-        Map<Integer, User> resources = new LinkedHashMap<>();
+    public static Map<String, User> createUsers() {
+        Map<String, User> users = new LinkedHashMap<>();
         Map<String, Skill> skills = createSkills();
 
-        User p1 = new User(IdCounter.incrementUserID(), "Peter", "Hayes", "Senior Software Developer", 33, 17.6);
-        p1.getListOfSkills().add(new SkilledUser(p1.getUserId(), skills.get("Java"), 7));
-        p1.getListOfSkills().add(new SkilledUser(p1.getUserId(), skills.get("RDBMS"), 6));
-        p1.getListOfSkills().add(new SkilledUser(p1.getUserId(), skills.get("Python"), 1));
-        resources.put(p1.getUserId(), p1);
+        User userOne = new User(UUID.randomUUID().toString(), "Peter", "Hayes", "Senior Software Developer", "01-01-1990", 17.6);
+        userOne.getSkills().add(skills.getOrDefault("4", new Skill("2", "Rest Api", "2.0")));
+        users.put(userOne.getId(), userOne);
 
-        User p2 = new User(IdCounter.incrementUserID(), "John", "Doe", "Software Developer", 24,
+        User userTwo = new User(UUID.randomUUID().toString(), "John", "Doe", "Software Developer", "01-01-1990",
                 4.3, "21-01-2017");
-        List<Skill> skillSetP2 = new ArrayList<>();
-        p2.getListOfSkills().add(new SkilledUser(p2.getUserId(), skills.get("Java"), 4));
-        p2.getListOfSkills().add(new SkilledUser(p2.getUserId(), skills.get("Rest Api"), 2));
-        p2.getListOfSkills().add(new SkilledUser(p2.getUserId(), skills.get("OutSystems"), 2));
+        userTwo.getSkills().add(skills.getOrDefault("1", new Skill("1", "Java", "8.12")));
+        userTwo.getSkills().add(skills.getOrDefault("3", new Skill("1", "Java", "8.12")));
 
-        resources.put(p2.getUserId(), p2);
+        users.put(userTwo.getId(), userTwo);
 
-        return resources;
+        return users;
     }
 
     public static Map<String, Skill> createSkills(){
 
         Map<String, Skill> skills = new LinkedHashMap<>();
 
-        Skill javaSkill = new Skill(IdCounter.incrementSkillID(), "Java", 8.12);
-        Skill restSkill = new Skill(IdCounter.incrementSkillID(), "Rest Api", 2.0);
-        Skill dbmsSkill = new Skill(IdCounter.incrementSkillID(), "RDBMS", 12.0);
-        Skill pythonSkill = new Skill(IdCounter.incrementSkillID(), "Python", 3.0);
-        Skill outSystemsSkill = new Skill(IdCounter.incrementSkillID(), "OutSystems", 11.0);
+        Skill java = new Skill("1", "Java", "8.12");
+        Skill rest = new Skill("2", "Rest Api", "2.0");
+        Skill rdbms = new Skill("3", "RDBMS", "12.0");
+        Skill python = new Skill("4", "Python", "3.0");
+        Skill outsystems = new Skill("5", "OutSystems", "11.0");
 
-        skills.put(javaSkill.getNameOfSkill(), javaSkill);
-        skills.put(restSkill.getNameOfSkill(), restSkill);
-        skills.put(dbmsSkill.getNameOfSkill(), dbmsSkill);
-        skills.put(pythonSkill.getNameOfSkill(), pythonSkill);
-        skills.put(outSystemsSkill.getNameOfSkill(), outSystemsSkill);
+        skills.put(java.getId(), java);
+        skills.put(rest.getId(), rest);
+        skills.put(rdbms.getId(), rdbms);
+        skills.put(python.getId(), python);
+        skills.put(outsystems.getId(), outsystems);
 
         return skills;
     }

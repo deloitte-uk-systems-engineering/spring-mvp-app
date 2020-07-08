@@ -1,24 +1,24 @@
 package com.deloitte.mvp.service;
 
 import com.deloitte.mvp.model.User;
-import com.deloitte.mvp.utility.IdCounter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Component
 public class UserService implements IUserService {
 
     @Autowired
-    Map<Integer, User> resources;
+    Map<String, User> resources;
 
     @Override
     public User createUser(User user) {
-        int id = IdCounter.incrementUserID();
-        user.setUserId(id);
+        String id = UUID.randomUUID().toString();
+        user.setId(id);
         resources.put(id, user);
         return user;
     }
@@ -29,17 +29,16 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User deleteUser(Integer id) {
+    public User deleteUser(String id) {
         if(resources.containsKey(id)) {
             User deletedUser = resources.get(id);
             resources.remove(id);
-            IdCounter.decrementUserID();
             return deletedUser;
         } else return null;
     }
 
     @Override
-    public User getUserById(Integer id) {
+    public User getUserById(String id) {
         return resources.get(id);
     }
 }
