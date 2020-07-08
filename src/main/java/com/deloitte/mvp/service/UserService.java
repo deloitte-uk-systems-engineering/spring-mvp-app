@@ -16,10 +16,11 @@ public class UserService implements IUserService {
     Map<Integer, User> resources;
 
     @Override
-    public Integer createUser(User user) {
+    public User createUser(User user) {
         int id = IdCounter.incrementUserID();
+        user.setUserId(id);
         resources.put(id, user);
-        return id;
+        return user;
     }
 
     @Override

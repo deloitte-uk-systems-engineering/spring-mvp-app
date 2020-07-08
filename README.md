@@ -1,8 +1,10 @@
-# Java Spring Boilerplate
+# Java Spring Skills Tracker App
 
-A Java Spring boilerplate reference project with user authentication, and connects to an SQL database
+A skills trackers app in Java Spring with the following features:
+- Users authentications
+- Connects to cloud database
 
-The use case is a skills tracker app for users
+Also acts as a boilerplate for future Java Spring projects 
 
 ## Run/Build Locally
 
@@ -17,7 +19,9 @@ Various options to run/build this app locally:
 - Associated configurations will be added in `/resources/application.properties`
 
 ## Usage  
- 
+
+Download Postman collection [here](https://www.getpostman.com/collections/b8d3e24049479e11bdbd) which enables for the following usages: 
+
 - Once app is running, to get users make a GET request to `http://localhost:8080/users`
 
 - To get info on specific user, make a GET request to `http://localhost:8080/users/<id>`    

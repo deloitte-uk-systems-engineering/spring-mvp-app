@@ -3,10 +3,10 @@ package com.deloitte.mvp.controllers;
 import com.deloitte.mvp.model.User;
 import com.deloitte.mvp.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -34,8 +34,8 @@ public class UserController {
 
     // Create user
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public ResponseEntity<Integer> createUser(@RequestBody User user){
-        return ResponseEntity.ok().body(userService.createUser(user));
+    public ResponseEntity<User> createUser(@RequestBody User user){
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(user));
     }
 
     // Delete user
