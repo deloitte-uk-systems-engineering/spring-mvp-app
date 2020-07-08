@@ -17,7 +17,7 @@ public class SpringMvpAppApplication {
     }
 
     @Bean
-    public Map<Integer, User> initialize(){
-        return ResourceCreator.createEngineers();
+    public Map<String, User> initialize (){
+        return ResourceCreator.createUsers();
     }
 }

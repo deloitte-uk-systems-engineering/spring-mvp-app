@@ -7,51 +7,51 @@ import java.util.List;
 @XmlRootElement
 public class User {
 
-    private int userId;
+    private String id;
     private String firstName;
     private String lastName;
     private String grade;
-    private int age;
-    private double totalExperience;
-    private String dateOfJoining;
-    private List<SkilledUser> skills = new ArrayList<>();
+    private String dateOfBirth;
+    private double yearsExperience;
+    private String dateJoined;
+    private List<Skill> skills = new ArrayList<>();
 
-    public User(int userId, String firstName, String lastName, String grade, int age, double totalExperience, String dateOfJoining) {
-        this.userId = userId;
+    public User(String id, String firstName, String lastName, String grade, String dateOfBirth, double yearsExperience, String dateJoined) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.grade = grade;
-        this.age = age;
-        this.totalExperience = totalExperience;
-        this.dateOfJoining = dateOfJoining;
+        this.dateOfBirth = dateOfBirth;
+        this.yearsExperience = yearsExperience;
+        this.dateJoined = dateJoined;
     }
 
-    public User(int userId, String firstName, String lastName, String grade, int age, double totalExperience, String dateOfJoining, List<Skill> listOfSkills) {
-        this.userId = userId;
+    public User(String id, String firstName, String lastName, String grade, String dateOfBirth, double yearsExperience, String dateJoined, List<Skill> skills) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.grade = grade;
-        this.age = age;
-        this.totalExperience = totalExperience;
-        this.dateOfJoining = dateOfJoining;
+        this.dateOfBirth = dateOfBirth;
+        this.yearsExperience = yearsExperience;
+        this.dateJoined = dateJoined;
         this.skills = skills;
     }
 
-    public User(int userId, String firstName, String lastName, String grade, int age, double totalExperience) {
-        this.userId = userId;
+    public User(String id, String firstName, String lastName, String grade, String dateOfBirth, double yearsExperience) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.grade = grade;
-        this.age = age;
-        this.totalExperience = totalExperience;
+        this.dateOfBirth = dateOfBirth;
+        this.yearsExperience = yearsExperience;
     }
 
     public User() {
     }
 
-    public int getUserId() { return userId; }
+    public String getId() { return id; }
 
-    public void setUserId(int userId) { this.userId = userId; }
+    public void setId(String id) { this.id = id; }
 
     public String getFirstName() {
         return firstName;
@@ -77,49 +77,49 @@ public class User {
         this.grade = grade;
     }
 
-    public int getAge() {
-        return age;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public double getTotalExperience() {
-        return totalExperience;
+    public double getYearsExperience() {
+        return yearsExperience;
     }
 
-    public void setTotalExperience(double totalExperience) {
-        this.totalExperience = totalExperience;
+    public void setYearsExperience(double yearsExperience) {
+        this.yearsExperience = yearsExperience;
     }
 
-    public String getDateOfJoining() {
-        return dateOfJoining;
+    public String getDateJoined() {
+        return dateJoined;
     }
 
-    public void setDateOfJoining(String dateOfJoining) {
-        this.dateOfJoining = dateOfJoining;
+    public void setDateJoined(String dateJoined) {
+        this.dateJoined = dateJoined;
     }
 
-    public List<SkilledUser> getListOfSkills() {
+    public List<Skill> getSkills () {
         return skills;
     }
 
-    public void setListOfSkills(List<SkilledUser> listOfSkills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "userId='" + userId + '\'' +
+                "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", grade='" + grade + '\'' +
-                ", age=" + age +
-                ", totalExperience=" + totalExperience +
-                ", dateOfJoining='" + dateOfJoining + '\'' +
-                ", listOfSkills=" + skills +
+                ", dateOfBirth=" + dateOfBirth +
+                ", yearsExperience=" + yearsExperience +
+                ", dateJoined='" + dateJoined + '\'' +
+                ", skills=" + skills +
                 '}';
     }
 }

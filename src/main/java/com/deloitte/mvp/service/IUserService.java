@@ -9,6 +9,6 @@ public interface IUserService {
 
     public User createUser(User user);
     public List<User> getUsers();
-    public User deleteUser(Integer id);
-    public User getUserById(Integer id);
+    public User deleteUser(String id);
+    public User getUserById(String id);
 }
