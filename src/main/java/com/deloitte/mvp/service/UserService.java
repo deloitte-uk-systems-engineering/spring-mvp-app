@@ -1,10 +1,12 @@
 package com.deloitte.mvp.service;
 
 import com.deloitte.mvp.model.User;
-import com.deloitte.mvp.utility.ResourceCounter;
+import com.deloitte.mvp.utility.IdCounter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -15,15 +17,14 @@ public class UserService implements IUserService {
 
     @Override
     public Integer createUser(User user) {
-        int id = ResourceCounter.increment();
+        int id = IdCounter.incrementUserID();
         resources.put(id, user);
         return id;
     }
 
     @Override
-    public Map<Integer, User> getUsers() {
-        return resources;
-        //return new ArrayList<Engineer>(resources.values());
+    public List<User> getUsers() {
+        return new ArrayList<User>(resources.values());
     }
 
     @Override
@@ -31,7 +32,7 @@ public class UserService implements IUserService {
         if(resources.containsKey(id)) {
             User deletedUser = resources.get(id);
             resources.remove(id);
-            ResourceCounter.decrement();
+            IdCounter.decrementUserID();
             return deletedUser;
         } else return null;
     }

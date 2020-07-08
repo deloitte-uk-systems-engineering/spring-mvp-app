@@ -1,18 +1,23 @@
 package com.deloitte.mvp.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
 import java.util.List;
 
+@XmlRootElement
 public class User {
 
+    private int userId;
     private String firstName;
     private String lastName;
     private String grade;
     private int age;
     private double totalExperience;
     private String dateOfJoining;
-    private List<Skill> listOfSkills;
+    private List<SkilledUser> skills = new ArrayList<>();
 
-    public User(String firstName, String lastName, String grade, int age, double totalExperience, String dateOfJoining) {
+    public User(int userId, String firstName, String lastName, String grade, int age, double totalExperience, String dateOfJoining) {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.grade = grade;
@@ -21,17 +26,19 @@ public class User {
         this.dateOfJoining = dateOfJoining;
     }
 
-    public User(String firstName, String lastName, String grade, int age, double totalExperience, String dateOfJoining, List<Skill> listOfSkills) {
+    public User(int userId, String firstName, String lastName, String grade, int age, double totalExperience, String dateOfJoining, List<Skill> listOfSkills) {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.grade = grade;
         this.age = age;
         this.totalExperience = totalExperience;
         this.dateOfJoining = dateOfJoining;
-        this.listOfSkills = listOfSkills;
+        this.skills = skills;
     }
 
-    public User(String firstName, String lastName, String grade, int age, double totalExperience) {
+    public User(int userId, String firstName, String lastName, String grade, int age, double totalExperience) {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.grade = grade;
@@ -41,6 +48,10 @@ public class User {
 
     public User() {
     }
+
+    public int getUserId() { return userId; }
+
+    public void setUserId(int userId) { this.userId = userId; }
 
     public String getFirstName() {
         return firstName;
@@ -90,24 +101,25 @@ public class User {
         this.dateOfJoining = dateOfJoining;
     }
 
-    public List<Skill> getListOfSkills() {
-        return listOfSkills;
+    public List<SkilledUser> getListOfSkills() {
+        return skills;
     }
 
-    public void setListOfSkills(List<Skill> listOfSkills) {
-        this.listOfSkills = listOfSkills;
+    public void setListOfSkills(List<SkilledUser> listOfSkills) {
+        this.skills = skills;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "firstName='" + firstName + '\'' +
+                "userId='" + userId + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", grade='" + grade + '\'' +
                 ", age=" + age +
                 ", totalExperience=" + totalExperience +
                 ", dateOfJoining='" + dateOfJoining + '\'' +
-                ", listOfSkills=" + listOfSkills +
+                ", listOfSkills=" + skills +
                 '}';
     }
 }

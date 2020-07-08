@@ -2,13 +2,13 @@ package com.deloitte.mvp.model;
 
 public class Skill {
 
+    private int skillId;
     private String nameOfSkill;
-    private double experience;
     private double version;
 
-    public Skill(String nameOfSkill, double experience, double version) {
+    public Skill(int skillId, String nameOfSkill, double version) {
+        this.skillId = skillId;
         this.nameOfSkill = nameOfSkill;
-        this.experience = experience;
         this.version = version;
     }
 
@@ -23,14 +23,6 @@ public class Skill {
         this.nameOfSkill = nameOfSkill;
     }
 
-    public double getExperience() {
-        return experience;
-    }
-
-    public void setExperience(double experience) {
-        this.experience = experience;
-    }
-
     public double getVersion() {
         return version;
     }
@@ -39,11 +31,15 @@ public class Skill {
         this.version = version;
     }
 
+    public int getSkillId() { return skillId; }
+
+    public void setSkillId(int skillId) { this.skillId = skillId; }
+
     @Override
     public String toString() {
         return "Skill{" +
-                "nameOfSkill='" + nameOfSkill + '\'' +
-                ", experience=" + experience +
+                "skillId='" + skillId + '\'' +
+                ", nameOfSkill='" + nameOfSkill + '\'' +
                 ", version=" + version +
                 '}';
     }
