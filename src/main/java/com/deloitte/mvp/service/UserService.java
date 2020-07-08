@@ -18,6 +18,7 @@ public class UserService implements IUserService {
     @Override
     public User createUser(User user) {
         int id = IdCounter.incrementUserID();
+        user.setUserId(id);
         resources.put(id, user);
         return user;
     }
