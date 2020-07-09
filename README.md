@@ -14,8 +14,8 @@ Various options to run/build this app locally:
 
 ## Database
 
-- App is currently storing data via in-memory database
-- This will be replaced by local SQL database such as PostgreSQL or cloud database such as AWS RDS
+- App is currently storing data via MySQL DB. Kindly configure MySQL Db in your machine and update application.properties file with connection details.
+- This will be replaced by cloud database such as AWS RDS in future.
 - Associated configurations will be added in `/resources/application.properties`
 
 ## Usage  
