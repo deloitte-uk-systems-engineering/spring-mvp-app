@@ -1,12 +1,23 @@
 package com.deloitte.mvp.model;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+@Entity
 public class Skill {
 
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String skill;
     private String version;
+    @OneToMany(mappedBy = "skill", fetch = FetchType.EAGER)
+    private Set<SkilledUser> skilledUsers = new HashSet<>();
 
-    public Skill(String id, String skill, String version) {
+    public Skill(long id, String skill, String version) {
         this.id = id;
         this.skill = skill;
         this.version = version;
@@ -31,9 +42,17 @@ public class Skill {
         this.version = version;
     }
 
-    public String getId() { return id; }
+    public long getId() { return id; }
 
-    public void setId(String skillId) { this.id = id; }
+    public void setId(long skillId) { this.id = skillId; }
+
+    public Set<SkilledUser> getSkilledUsers() {
+        return skilledUsers;
+    }
+
+    public void setSkilledUsers(Set<SkilledUser> skilledUsers) {
+        this.skilledUsers = skilledUsers;
+    }
 
     @Override
     public String toString() {
@@ -41,6 +60,7 @@ public class Skill {
                 "id='" + id + '\'' +
                 ", skill='" + skill + '\'' +
                 ", version=" + version +
+                ", skilledUsers=" + skilledUsers +
                 '}';
     }
 }

@@ -1,18 +1,31 @@
 package com.deloitte.mvp.model;
 
-public class SkilledUser {
+import javax.persistence.*;
+import java.io.Serializable;
 
+@Entity
+@IdClass(SkilledUserKey.class)
+public class SkilledUser implements Serializable {
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "skill_id", referencedColumnName = "id")
     private Skill skill;
-    private int userId;
-    private double experience;
 
-    public SkilledUser(int userId, Skill skill, double exp) {
-        this.userId=userId;
-        this.skill = skill;
-        this.experience = exp;
+    double experience;
+
+    public User getUser() {
+        return user;
     }
 
-    public SkilledUser(){}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Skill getSkill() {
         return skill;
@@ -20,14 +33,6 @@ public class SkilledUser {
 
     public void setSkill(Skill skill) {
         this.skill = skill;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public double getExperience() {
@@ -41,8 +46,8 @@ public class SkilledUser {
     @Override
     public String toString() {
         return "SkilledUser{" +
-                "skill=" + skill +
-                ", userId=" + userId +
+                "user=" + user +
+                ", skill=" + skill +
                 ", experience=" + experience +
                 '}';
     }

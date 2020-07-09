@@ -1,57 +1,33 @@
 package com.deloitte.mvp.model;
 
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-@XmlRootElement
+@Entity
 public class User {
 
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String firstName;
     private String lastName;
     private String grade;
     private String dateOfBirth;
     private double yearsExperience;
     private String dateJoined;
-    private List<Skill> skills = new ArrayList<>();
-
-    public User(String id, String firstName, String lastName, String grade, String dateOfBirth, double yearsExperience, String dateJoined) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.grade = grade;
-        this.dateOfBirth = dateOfBirth;
-        this.yearsExperience = yearsExperience;
-        this.dateJoined = dateJoined;
-    }
-
-    public User(String id, String firstName, String lastName, String grade, String dateOfBirth, double yearsExperience, String dateJoined, List<Skill> skills) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.grade = grade;
-        this.dateOfBirth = dateOfBirth;
-        this.yearsExperience = yearsExperience;
-        this.dateJoined = dateJoined;
-        this.skills = skills;
-    }
-
-    public User(String id, String firstName, String lastName, String grade, String dateOfBirth, double yearsExperience) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.grade = grade;
-        this.dateOfBirth = dateOfBirth;
-        this.yearsExperience = yearsExperience;
-    }
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<SkilledUser> skills = new HashSet<>();
 
     public User() {
     }
 
-    public String getId() { return id; }
+    public long getId() { return id; }
 
-    public void setId(String id) { this.id = id; }
+    public void setId(long id) { this.id = id; }
 
     public String getFirstName() {
         return firstName;
@@ -101,11 +77,11 @@ public class User {
         this.dateJoined = dateJoined;
     }
 
-    public List<Skill> getSkills () {
+    public Set<SkilledUser> getSkills () {
         return skills;
     }
 
-    public void setSkills(List<Skill> skills) {
+    public void setSkills(Set<SkilledUser> skills) {
         this.skills = skills;
     }
 
@@ -119,7 +95,7 @@ public class User {
                 ", dateOfBirth=" + dateOfBirth +
                 ", yearsExperience=" + yearsExperience +
                 ", dateJoined='" + dateJoined + '\'' +
-                ", skills=" + skills +
+                ", skilledUsers=" + skills +
                 '}';
     }
 }

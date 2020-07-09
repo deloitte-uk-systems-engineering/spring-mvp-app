@@ -1,4 +1,4 @@
-package com.deloitte.mvp.service;
+package com.deloitte.mvp.service.user;
 
 import com.deloitte.mvp.model.User;
 
@@ -9,6 +9,6 @@ public interface IUserService {
 
     public User createUser(User user);
     public List<User> getUsers();
-    public User deleteUser(String id);
-    public User getUserById(String id);
+    public User deleteUser(long id);
+    public User getUserById(long id);
 }
