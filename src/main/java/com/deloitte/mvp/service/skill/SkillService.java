@@ -1,9 +1,7 @@
 package com.deloitte.mvp.service.skill;
 
 import com.deloitte.mvp.model.Skill;
-import com.deloitte.mvp.model.User;
 import com.deloitte.mvp.repository.SkillRepo;
-import com.deloitte.mvp.utility.ResourceCreator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,5 +40,12 @@ public class SkillService implements ISkillService {
             skillRepo.deleteById(id);
         }
         return deletedSkill;
+    }
+
+    @Override
+    public Skill updateSkill(Skill skill){
+        if(skill!=null && skillRepo.findById(skill.getId()).isPresent()){
+            return skillRepo.save(skill);
+        } else return null;
     }
 }

@@ -27,6 +27,14 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public User updateUser(User user) {
+        if(user!=null && userRepo.findById(user.getId()).isPresent()){
+            return userRepo.save(user);
+        }
+        return null;
+    }
+
+    @Override
     public User createUser(User user) {
         return userRepo.save(user);
     }

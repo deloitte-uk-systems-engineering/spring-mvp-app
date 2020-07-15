@@ -58,4 +58,12 @@ public class SkillController {
         }
         return ResponseEntity.ok().body(skill);
     }
+
+    // Update Skill
+    @RequestMapping(value = "", method = RequestMethod.PUT)
+    public ResponseEntity<Skill> updateSkill(@RequestBody Skill skill){
+        if(skillService.updateSkill(skill)!=null){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(skill);}
+        else return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
 }

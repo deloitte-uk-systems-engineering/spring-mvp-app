@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.Response;
 import java.util.List;
 
 @RestController
@@ -46,5 +47,14 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok().body(user);
+    }
+
+    // Update User
+    @RequestMapping(value = "", method = RequestMethod.PUT)
+    public ResponseEntity<User> updateUser(@RequestBody User user){
+        if(userService.updateUser(user)!=null){
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(user);
+        }
+        return ResponseEntity.badRequest().build();
     }
 }
